@@ -13093,3 +13093,74 @@ File D:\erpapi\erp_env\Lib\site-packages\rest_framework\locale\zh_CN\LC_MESSAGES
 File D:\erpapi\erp_env\Lib\site-packages\rest_framework\locale\zh_Hans\LC_MESSAGES\django.mo first seen with mtime 1681195690.497997
 File D:\erpapi\erp_env\Lib\site-packages\rest_framework\locale\zh_Hant\LC_MESSAGES\django.mo first seen with mtime 1681195690.497997
 File D:\erpapi\erp_env\Lib\site-packages\rest_framework\locale\zh_TW\LC_MESSAGES\django.mo first seen with mtime 1681195690.497997
+File D:\erpapi\employee\migrations\__init__.py first seen with mtime 1679560301.0805929
+File D:\erpapi\erp_env\Lib\site-packages\django\middleware\clickjacking.py first seen with mtime 1681199143.4022756
+File D:\erpapi\accounts\migrations\__init__.py first seen with mtime 1679560300.9300945
+File D:\erpapi\erp_env\Lib\site-packages\django\db\migrations\graph.py first seen with mtime 1681199143.3710294
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\auth\migrations\0009_alter_user_last_name_max_length.py first seen with mtime 1681199142.886288
+File D:\erpapi\erp_env\Lib\site-packages\PIL\TiffTags.py first seen with mtime 1681199140.783029
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\auth\migrations\__init__.py first seen with mtime 1681199142.901911
+File D:\erpapi\erp_env\Lib\site-packages\django\db\models\sql\compiler.py first seen with mtime 1681199143.3710294
+File D:\erpapi\erp_env\Lib\site-packages\PIL\__init__.py first seen with mtime 1681199140.798652
+File D:\erpapi\common\migrations\__init__.py first seen with mtime 1679560300.9310913
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\admin\migrations\0002_logentry_remove_auto_add.py first seen with mtime 1681199142.7144375
+File D:\erpapi\organization\migrations\0003_employmenttenure_employmenttype.py first seen with mtime 1679560301.0825849
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\admin\migrations\0001_initial.py first seen with mtime 1681199142.7144375
+File D:\erpapi\accounts\migrations\0002_user_gender_user_personal_statement_user_remarks.py first seen with mtime 1679560300.9300945
+File D:\erpapi\erp_env\Lib\site-packages\django\db\migrations\loader.py first seen with mtime 1681199143.3710294
+File D:\erpapi\organization\migrations\0001_initial.py first seen with mtime 1679560301.0825849
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\auth\migrations\0011_update_proxy_permissions.py first seen with mtime 1681199142.901911
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\sessions\backends\db.py first seen with mtime 1681199143.214796
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\auth\migrations\0004_alter_user_username_opts.py first seen with mtime 1681199142.886288
+File D:\erpapi\employee\migrations\0001_initial.py first seen with mtime 1680073931.9698274
+File D:\erpapi\accounts\migrations\0001_initial.py first seen with mtime 1679560300.9300945
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\auth\migrations\0007_alter_validators_add_error_messages.py first seen with mtime 1681199142.886288
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\sessions\migrations\__init__.py first seen with mtime 1681199143.2616658
+File D:\erpapi\erp_env\Lib\site-packages\PIL\ExifTags.py first seen with mtime 1681199140.767405
+File D:\erpapi\erp_env\Lib\site-packages\PIL\ImageMode.py first seen with mtime 1681199140.783029
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\contenttypes\migrations\__init__.py first seen with mtime 1681199142.9492626
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\auth\migrations\0008_alter_user_username_max_length.py first seen with mtime 1681199142.886288
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\auth\migrations\0003_alter_user_email_max_length.py first seen with mtime 1681199142.886288
+File D:\erpapi\erp_env\Lib\site-packages\PIL\_util.py first seen with mtime 1681199140.8142767
+File D:\erpapi\erp_env\Lib\site-packages\PIL\_imaging.cp311-win_amd64.pyd first seen with mtime 1681199140.798652
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\auth\migrations\0002_alter_permission_name_max_length.py first seen with mtime 1681199142.886288
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\auth\migrations\0001_initial.py first seen with mtime 1681199142.886288
+File D:\erpapi\common\migrations\0001_initial.py first seen with mtime 1679916240.1968608
+File D:\erpapi\core\migrations\__init__.py first seen with mtime 1681197431.7015574
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\admin\migrations\__init__.py first seen with mtime 1681199142.7144375
+File D:\erpapi\erp_env\Lib\site-packages\django\db\migrations\recorder.py first seen with mtime 1681199143.3710294
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\auth\migrations\0005_alter_user_last_login_null.py first seen with mtime 1681199142.886288
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\auth\migrations\0006_require_contenttypes_0002.py first seen with mtime 1681199142.886288
+File D:\erpapi\erp_env\Lib\site-packages\django\db\migrations\executor.py first seen with mtime 1681199143.3710294
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\contenttypes\migrations\0002_remove_content_type_name.py first seen with mtime 1681199142.9492626
+File D:\erpapi\organization\migrations\0002_corporateentity_event_unit_notice.py first seen with mtime 1679560301.0825849
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\sessions\migrations\0001_initial.py first seen with mtime 1681199143.2616658
+File D:\erpapi\erp_env\Lib\site-packages\corsheaders\middleware.py first seen with mtime 1681198226.2512052
+File D:\erpapi\api\wsgi.py first seen with mtime 1681197423.2132084
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\contenttypes\migrations\0001_initial.py first seen with mtime 1681199142.9492626
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\auth\migrations\0010_alter_group_name_max_length.py first seen with mtime 1681199142.901911
+File D:\erpapi\erp_env\Lib\site-packages\corsheaders\signals.py first seen with mtime 1681198226.2522137
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\auth\migrations\0012_alter_user_first_name_max_length.py first seen with mtime 1681199142.901911
+File D:\erpapi\erp_env\Lib\site-packages\PIL\Image.py first seen with mtime 1681199140.783029
+File D:\erpapi\erp_env\Lib\site-packages\PIL\_binary.py first seen with mtime 1681199140.798652
+File D:\erpapi\accounts\migrations\0003_user_is_staff.py first seen with mtime 1679560300.9300945
+File D:\erpapi\erp_env\Lib\site-packages\PIL\_deprecate.py first seen with mtime 1681199140.798652
+File D:\erpapi\erp_env\Lib\site-packages\PIL\_version.py first seen with mtime 1681199140.8142767
+File D:\erpapi\organization\migrations\__init__.py first seen with mtime 1679560301.0825849
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\admin\migrations\0003_logentry_add_action_flag_choices.py first seen with mtime 1681199142.7144375
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2023-04-11T07:53:38.281616+00:00'::timestamptz AND "django_session"."session_key" = 'l6ud7zy4jqiil086zghkgthzn1olnxre') LIMIT 21; args=(datetime.datetime(2023, 4, 11, 7, 53, 38, 281616, tzinfo=datetime.timezone.utc), 'l6ud7zy4jqiil086zghkgthzn1olnxre'); alias=default
+"GET / HTTP/1.1" 200 930
+"GET /static/drf-yasg/style.css HTTP/1.1" 200 1047
+"GET /static/drf-yasg/redoc-init.js HTTP/1.1" 200 2566
+"GET /static/drf-yasg/insQ.min.js HTTP/1.1" 200 2093
+"GET /static/drf-yasg/redoc/redoc.min.js HTTP/1.1" 200 998563
+"GET /?format=openapi HTTP/1.1" 200 57705
+"GET /static/drf-yasg/redoc/redoc-logo.png HTTP/1.1" 200 4969
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\sessions\serializers.py first seen with mtime 1681199143.214796
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\messages\context_processors.py first seen with mtime 1681199143.1251533
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\messages\storage\session.py first seen with mtime 1681199143.1251533
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\staticfiles\storage.py first seen with mtime 1681199143.3241594
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\messages\storage\cookie.py first seen with mtime 1681199143.1251533
+File D:\erpapi\erp_env\Lib\site-packages\django\template\context_processors.py first seen with mtime 1681199143.4022756
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\auth\context_processors.py first seen with mtime 1681199142.8238108
+File D:\erpapi\erp_env\Lib\site-packages\django\contrib\messages\storage\fallback.py first seen with mtime 1681199143.1251533
