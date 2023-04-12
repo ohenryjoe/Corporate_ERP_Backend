@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import SalaryScale, CorporateEntity, Unit, Event, Notice
+from .models import SalaryScale, CorporateEntity, Unit, Event, Notice, EmploymentType, EmploymentTenure
 
 
 
@@ -41,3 +41,13 @@ class NoticeSerializer(serializers.ModelSerializer):
         '''Meta class to define the model and fields to be serialized'''
         model = Notice
         fields = ['id', 'title','event','caption','detail','date_published','attachment']
+
+class EmploymentTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = EmploymentType
+        fields = ['code', 'title', 'description']
+
+class EmploymentTenureSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = EmploymentTenure
+        fields = ['code', 'title', 'description']

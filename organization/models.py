@@ -28,7 +28,6 @@ class CorporateEntity(BaseModel):
     def __str__(self) -> str:
         return self.title
     
-
 class Unit(BaseModel):
     """This model handles the different units"""
     title = models.CharField(max_length=255)
@@ -40,7 +39,6 @@ class Unit(BaseModel):
 
     def __str__(self) -> str:
         return self.title
-
 
 class Event(BaseModel):
     ''' All events are published here'''
@@ -55,7 +53,6 @@ class Event(BaseModel):
     def __str__(self):
         return self.title
     
-
 class Notice(BaseModel):
     ''' All notices are published here'''
     title = models.CharField(max_length=100)
@@ -70,7 +67,6 @@ class Notice(BaseModel):
     def __str__(self):
         return self.title
     
-
 class EmploymentTenure(BaseModel):
     ''' Contract, Permanent e.t.c '''
     code = models.CharField(max_length=4)

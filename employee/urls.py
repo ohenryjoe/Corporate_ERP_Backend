@@ -9,8 +9,12 @@ app_name = 'employee'
 router = routers.DefaultRouter()
 router.register(r'designations', views.DesignationViewSet,'designation')
 router.register(r'employees', views.EmployeeViewSet,'employees')
-
-
+router.register(r'banking', views.BankingViewSet, 'banking')
+router.register(r'experience', views.ExperienceViewSet, 'experience')
+router.register(r'education', views.EducationViewSet, 'education')
+router.register(r'related-person', views.RelatedPersonViewSet, 'related_person')
+router.register(r'address', views.AddressViewSet, 'address')
+router.register(r'contact', views.ContactViewSet, 'contact')
 
 urlpatterns = [
     path('', include(router.urls)),

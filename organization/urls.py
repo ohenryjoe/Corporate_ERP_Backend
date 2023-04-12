@@ -12,6 +12,8 @@ router.register(r'corporate-entities', views.CorporateEntityViewSet,'corporate_e
 router.register(r'units', views.UnitViewSet,'unit')
 router.register(r'events', views.EventViewSet,'event')
 router.register(r'notice', views.NoticeViewSet,'notice')
+router.register(r'employment-types', views.EmploymentTypeViewSet, 'employment_types')
+router.register(r'employment-tenures', views.EmploymentTenureViewSet, 'employment_tenures')
 
 
 urlpatterns = [
