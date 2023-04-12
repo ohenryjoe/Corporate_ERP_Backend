@@ -20,6 +20,7 @@ class EmployeeViewSet(viewsets.ModelViewSet):
     serializer_class = EmployeeSerializer
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    pagination_class = None
     search_fields = ['surname','othernames']
     ordering_fields = '__all__'
 
@@ -28,6 +29,7 @@ class BankingViewSet(viewsets.ModelViewSet):
     serializer_class = BankingSerializer
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    pagination_class = None
     search_fields = ['accountName','bankName','accountNumber',]
     ordering_fields = '__all__'
 
@@ -36,6 +38,7 @@ class ExperienceViewSet(viewsets.ModelViewSet):
     serializer_class = ExperienceSerializer
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    pagination_class = None
     search_fields = ['org_name', 'job_title', 'employee_surname', 'employee_othernames']
     ordering_fields = '__all__'
 
@@ -44,6 +47,7 @@ class EducationViewSet(viewsets.ModelViewSet):
     serializer_class = EducationSerializer
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    pagination_class = None
     search_fields = ['institution_name', 'job_title', 'employee_surname', 'employee_othernames', 'qualification_title']
     ordering_fields = '__all__'
 
@@ -52,6 +56,7 @@ class RelatedPersonViewSet(viewsets.ModelViewSet):
     serializer_class = RelatedPersonSerializer
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    pagination_class = None
     search_fields = ['employee_othernames', 'employee_surname', 'full_name', 'gender', 'date_of_birth', 'nin', 'relationship', 'is_nok', 'is_dependant', 'email', 'mobile', 'address']
     ordering_fields = '__all__'
 
@@ -60,6 +65,7 @@ class AddressViewSet(viewsets.ModelViewSet):
     serializer_class = AddressSerializer
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    pagination_class = None
     search_fields = ['employee', 'region', 'district', 'county', 'subcounty', 'parish', 'village']
     ordering_fields = '__all__'
 
@@ -68,5 +74,6 @@ class ContactViewSet(viewsets.ModelViewSet):
     serializer_class = ContactSerializer
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    pagination_class = None
     search_fields = ['employee_surname', 'employee_othernames', 'email', 'phone']
     ordering_fields = '__all__'
