@@ -45,9 +45,9 @@ class NoticeSerializer(serializers.ModelSerializer):
 class EmploymentTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = EmploymentType
-        fields = ['code', 'title', 'description']
+        fields = ['id', 'code', 'title', 'description']
 
 class EmploymentTenureSerializer(serializers.ModelSerializer):
     class Meta:
         model = EmploymentTenure
-        fields = ['code', 'title', 'description']
+        fields = ['id', 'code', 'title', 'description']

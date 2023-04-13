@@ -197,15 +197,28 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-#emails configurations
+#GMAIL configurations
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = os.environ.get('EMAIL_HOST'),
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD'),
-EMAIL_HOST_USER = os.environ.get('EMAIL_USER'),
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-EMAIL_PORT = os.environ.get('EMAIL_PORT'),
-EMAIL_USE_SSL = False
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'henry.stormsoft@gmail.com'
+EMAIL_HOST_PASSWORD = 'dlsszqxgqskmkyws'
+DEFAULT_FROM_EMAIL = 'henry.stormsoft@gmail.com'
+SERVER_EMAIL = 'mail.google.com'
+
+
+# ========UNEB EXCHANGE  ==========
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'henry.stormsoft@gmail.com'
+# EMAIL_HOST_PASSWORD = 'dlsszqxgqskmkyws'
+# DEFAULT_FROM_EMAIL = 'henry.stormsoft@gmail.com'
+# SERVER_EMAIL = 'mail.google.com'
+
+
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:4200",
@@ -241,3 +254,7 @@ LOGGING = {
         },
     },
 }
+
+# age validation of user
+MIN_USER_AGE = 18
+MAX_USER_AGE = 60

@@ -21,7 +21,7 @@ class EmployeeViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
     pagination_class = None
-    search_fields = ['surname','othernames']
+    search_fields = ['surname','othernames', 'employeeNumber']
     ordering_fields = '__all__'
 
 class BankingViewSet(viewsets.ModelViewSet):

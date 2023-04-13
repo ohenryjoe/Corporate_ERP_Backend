@@ -14,7 +14,7 @@ class EmployeeSerializer(serializers.ModelSerializer):
     '''Serializer to manage crud operations for Employees data'''
     class Meta:
         model = Employee
-        fields = ['id','user', 'surname', 'othernames', 'dob', 'salutation', 'nationality', 'marital_status', 'profilePic', 'phone1', 'phone2', 'religion']
+        fields = ['id','user', 'surname', 'othernames', 'dob', 'gender','salutation', 'nationality', 'marital_status', 'profilePic', 'email', 'phone1', 'phone2', 'religion', 'employeeNumber']
 
 class BankingSerializer(serializers.ModelSerializer):
     class Meta:

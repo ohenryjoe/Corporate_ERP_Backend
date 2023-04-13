@@ -8,8 +8,16 @@ from rest_framework import (filters, parsers, permissions, renderers, status,
                             viewsets)
 from .models import User
 from .serializers import UserSerializer
+import random
+import string
 
-
+def get_random_string(length):
+    # choose from all lowercase letter
+    letters = string.ascii_lowercase
+    result_str = ''.join(random.choice(letters) for i in range(length))
+    return result_str
+    
+    
 # Create your views here.
 
 # using Simple JWT to generate user token
@@ -43,3 +51,5 @@ class UserViewSet(viewsets.ModelViewSet):
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
     search_fields = ['email','first_name','last_name','gender']
     ordering_fields = '__all__'
+    
+    

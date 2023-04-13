@@ -29,18 +29,21 @@ class Designation(BaseModel, CuserModel):
     salary_scale = models.ForeignKey(
         SalaryScale, on_delete=models.SET_NULL, null=True, blank=True,
     )
-    supervisor = models.ForeignKey(
-        User, on_delete=models.SET_NULL, null=True, blank=True
+    supervisor = models.ForeignKey('self' , null=True, on_delete=models.SET_NULL, related_name='designation_supervisor'
     )
 
     def __str__(self):
         return self.title
 
 class Employee(BaseModel, CuserModel):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="detail")
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="detail", null=True, blank=True)
+    employeeNumber = models.CharField(max_length=10, blank=True,null=True)
     surname = models.CharField(max_length=25, blank=False, null=False)
     othernames = models.CharField(max_length=25, blank=False, null=False)
     dob = models.DateField(validators=[validate_user_birth_date])
+    gender = models.CharField(
+        choices=GENDER_CHOICES, max_length=15, default='Female'
+    )
     salutation = models.CharField(
         choices=SALUTATION_CHOICES, max_length=15, default='Ms'
     )
@@ -49,6 +52,7 @@ class Employee(BaseModel, CuserModel):
         choices=MARITAL_CHOICES, max_length=15, blank=True
     )
     profilePic = models.FileField(upload_to="uploads/profilePic/", null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
     phone1 = models.IntegerField(null=False)
     phone2 = models.IntegerField(null=True)
     religion = models.CharField(max_length=25, blank=True, null=True)
