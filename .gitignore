@@ -31,3 +31,4 @@ backend/common/migrations/__pycache__/**
 debug.log
 backend/debug.log
 backend/uploads/
+backend/env.py
