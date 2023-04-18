@@ -6,7 +6,7 @@ db.sqlite3-journal
 core/__pycache__/
 .idea
 .vscode
-erp_env
+erp_env/
 .pytest_cache
 .coverage
 .coverage.*
@@ -23,5 +23,4 @@ organization/__pycache__/models.cpython-39.pyc
 accounts/migrations/__pycache__/**
 common/migrations/__pycache__/**
 debug.log
-uploads/
-env.py
+
