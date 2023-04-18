@@ -32,3 +32,4 @@ debug.log
 backend/debug.log
 backend/uploads/
 backend/env.py
+erp_env
