@@ -40,6 +40,8 @@ urlpatterns = [
     path('api/common/', include('common.urls', namespace="common")),
     path('api/organization/', include('organization.urls', namespace="organization")),
     path('api/location/', include('location.urls', namespace="location")),
+    path('api/leave/', include('leave.urls', namespace="leave")),
+    
     path('api/employee/', include('employee.urls', namespace="employee")),
     re_path(r'^$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]

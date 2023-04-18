@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'employee',
     'common',
     'location',
+    'leave',
+    'appraisal'
 ]
 
 MIDDLEWARE = [
