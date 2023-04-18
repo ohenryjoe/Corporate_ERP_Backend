@@ -6,7 +6,7 @@ db.sqlite3-journal
 core/__pycache__/
 .idea
 .vscode
-erp_env/
+erp_env
 .pytest_cache
 .coverage
 .coverage.*
