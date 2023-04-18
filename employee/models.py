@@ -1,7 +1,7 @@
 import datetime
 
 from django.db import models
-from common.models import BaseModel, Nationality, Village
+from common.models import BaseModel, Nationality
 from accounts.models import User
 from common.validators import validate_user_birth_date
 from common.choices import GENDER_CHOICES, SALUTATION_CHOICES, MARITAL_CHOICES
