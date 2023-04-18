@@ -1,11 +1,15 @@
+import datetime
+
 from django.db import models
-from common.models import BaseModel,Nationality, Village
+from common.models import BaseModel, Nationality, Village
 from accounts.models import User
 from common.validators import validate_user_birth_date
 from common.choices import GENDER_CHOICES, SALUTATION_CHOICES, MARITAL_CHOICES
 from core.models import CuserModel
-from employee.constants import ADDRESS_TYPE, QUALIFICATION_LEVEL_CHOICES, RELATIONSHIP_TYPE
+from employee.constants import ADDRESS_TYPE, QUALIFICATION_LEVEL_CHOICES, RELATIONSHIP_TYPE, \
+    APPOINTMENT_CAPACITY_CHOICES
 from organization.models import Unit, EmploymentType, EmploymentTenure, SalaryScale
+
 
 # Create your models here.
 
@@ -29,15 +33,16 @@ class Designation(BaseModel, CuserModel):
     salary_scale = models.ForeignKey(
         SalaryScale, on_delete=models.SET_NULL, null=True, blank=True,
     )
-    supervisor = models.ForeignKey('self' , null=True, on_delete=models.SET_NULL, related_name='designation_supervisor'
-    )
+    supervisor = models.ForeignKey('self', null=True, on_delete=models.SET_NULL, related_name='designation_supervisor'
+                                   )
 
     def __str__(self):
         return self.title
 
+
 class Employee(BaseModel, CuserModel):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="detail", null=True, blank=True)
-    employeeNumber = models.CharField(max_length=10, blank=True,null=True)
+    employeeNumber = models.CharField(max_length=10, blank=True, null=True)
     surname = models.CharField(max_length=25, blank=False, null=False)
     othernames = models.CharField(max_length=25, blank=False, null=False)
     dob = models.DateField(validators=[validate_user_birth_date])
@@ -58,13 +63,31 @@ class Employee(BaseModel, CuserModel):
     religion = models.CharField(max_length=25, blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return self.employeeNumber
+
+
+class Appointment(BaseModel):
+    ''' This model handles the appointment of employees to different positions'''
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name="appointment")
+    designation = models.ForeignKey(Designation, on_delete=models.CASCADE, related_name="appointment_designation")
+    capacity = models.CharField(max_length=20, choices=APPOINTMENT_CAPACITY_CHOICES, )
+    employment_type = models.ForeignKey(EmploymentType, default=1, on_delete=models.PROTECT)
+    start_date = models.DateField(default=datetime.date.today)
+    end_date = models.DateField(blank=True, null=True)
+    file = models.FileField(upload_to="uploads/appointment_letters/")
+    first_appointment = models.BooleanField(default=False)
+    current_appointment = models.BooleanField(default=False)
+
+    # class Meta:
+    #     unique_together = ['employee', 'capacity', 'current_appointment']
+
 
 class Banking(BaseModel, CuserModel):
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
     accountName = models.CharField(max_length=25, blank=False, null=False)
     accountNumber = models.IntegerField(blank=False, null=False)
     bankName = models.CharField(max_length=25, blank=False, null=False)
+
 
 class Experience(BaseModel, CuserModel):
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name="experience")
@@ -78,18 +101,20 @@ class Experience(BaseModel, CuserModel):
     to_date = models.DateField()
     # to_date = models.DateField(widget=MonthYearWidget(years=xrange(2004, 2010)))
 
+
 class Education(BaseModel, CuserModel):
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name="education")
     qualification_title = models.CharField(max_length=150, blank=True)
     qualification_Level = models.CharField(choices=QUALIFICATION_LEVEL_CHOICES, max_length=50, blank=True)
-    institution_name = models.CharField(max_length=150, blank=True)
-    institution_website = models.CharField(max_length=150, blank=True)
-    institution_address = models.TextField(blank=True)
-    institution_email = models.EmailField(blank=True)
-    qualification_description = models.TextField(blank=True)
+    institution_name = models.CharField(max_length=150, default=None)
+    institution_website = models.CharField(max_length=150, null=True, blank=True)
+    institution_address = models.TextField(null=True, blank=True)
+    institution_email = models.EmailField(null=True, blank=True)
+    qualification_description = models.TextField(null=True, blank=True)
     start_date = models.DateField()
-    end_date = models.DateField()
-    graduation_date = models.DateField()
+    end_date = models.DateField(null=True, blank=True)
+    graduation_date = models.DateField(null=True, blank=True)
+
 
 class RelatedPerson(BaseModel, CuserModel):
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
@@ -104,14 +129,16 @@ class RelatedPerson(BaseModel, CuserModel):
     mobile = models.CharField(max_length=15, default=None)
     address = models.CharField(max_length=255, default=None)
 
+
 class Address(BaseModel, CuserModel):
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='address')
     region = models.CharField(max_length=15, default=None)
     district = models.CharField(max_length=15, default=None)
-    county =models.CharField(max_length=15, default=None)
+    county = models.CharField(max_length=15, default=None)
     subcounty = models.CharField(max_length=15, default=None)
     parish = models.CharField(max_length=15, blank=True)
     village = models.CharField(max_length=15, blank=True)
+
 
 class Contact(BaseModel, CuserModel):
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='contact')

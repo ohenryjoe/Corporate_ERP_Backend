@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from rest_framework import viewsets,permissions,filters
+from rest_framework import viewsets, permissions, filters
 from .serializers import *
 from .models import *
+
 
 # Create your views here.
 class RegionViewSet(viewsets.ModelViewSet):
@@ -13,6 +14,7 @@ class RegionViewSet(viewsets.ModelViewSet):
     search_fields = ['name']
     ordering_fields = '__all__'
 
+
 class SubRegionViewSet(viewsets.ModelViewSet):
     queryset = sub_region.objects.all()
     serializer_class = SubRegionSerializer
@@ -22,6 +24,7 @@ class SubRegionViewSet(viewsets.ModelViewSet):
     search_fields = ['name']
     ordering_fields = '__all__'
 
+
 class DistrictViewSet(viewsets.ModelViewSet):
     queryset = district.objects.all()
     serializer_class = DistrictSerializer
@@ -30,7 +33,8 @@ class DistrictViewSet(viewsets.ModelViewSet):
     pagination_class = None
     search_fields = ['name']
     ordering_fields = '__all__'
-    
+
+
 class LocalGovernmentViewSet(viewsets.ModelViewSet):
     queryset = local_government.objects.all()
     serializer_class = LocalGovernmentSerializer
@@ -39,6 +43,7 @@ class LocalGovernmentViewSet(viewsets.ModelViewSet):
     pagination_class = None
     search_fields = ['name']
     ordering_fields = '__all__'
+
 
 class CountyViewSet(viewsets.ModelViewSet):
     queryset = county.objects.all()
@@ -49,6 +54,7 @@ class CountyViewSet(viewsets.ModelViewSet):
     search_fields = ['name']
     ordering_fields = '__all__'
 
+
 class SubCountyViewSet(viewsets.ModelViewSet):
     queryset = subcounty.objects.all()
     serializer_class = SubCountySerializer
@@ -58,6 +64,7 @@ class SubCountyViewSet(viewsets.ModelViewSet):
     search_fields = ['name']
     ordering_fields = '__all__'
 
+
 class ParishViewSet(viewsets.ModelViewSet):
     queryset = parish.objects.all()
     serializer_class = ParishSerializer
@@ -66,6 +73,7 @@ class ParishViewSet(viewsets.ModelViewSet):
     pagination_class = None
     search_fields = ['name']
     ordering_fields = '__all__'
+
 
 class VillageViewSet(viewsets.ModelViewSet):
     queryset = village.objects.all()

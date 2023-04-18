@@ -15,7 +15,7 @@ import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -28,7 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,12 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'rest_framework',
     'drf_yasg',
     'corsheaders',
     'cuser',
-
     'core',
     'organization',
     'accounts',
@@ -86,14 +83,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'api.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env.POSTGRES_DB,      
+        'NAME': env.POSTGRES_DB,
         'USER': env.POSTGRES_USER,
         'PASSWORD': env.POSTGRES_PASSWORD,
         'HOST': 'localhost',
@@ -103,7 +99,6 @@ DATABASES = {
         # }
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -123,18 +118,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Kampala'
 
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -156,7 +149,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ],
     'DATETIME_FORMAT': "%d-%m-%Y %H:%M:%S",
-     'DATE_FORMAT': "%d-%m-%Y",
+    'DATE_FORMAT': "%d-%m-%Y",
     'DEFAULT_PARSER_CLASSES': (
         'rest_framework.parsers.JSONParser',
         'rest_framework.parsers.FormParser',
@@ -165,18 +158,12 @@ REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
 }
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Africa/Kampala'
-DATE_INPUT_FORMATS = ('%d-%m-%Y','%Y-%m-%d')
-DATE_FORMATS = ('%d-%m-%Y','%Y-%m-%d')
-USE_I18N = True
-
-USE_TZ = True
+DATE_INPUT_FORMATS = ('%d-%m-%Y', '%Y-%m-%d')
+DATE_FORMATS = ('%d-%m-%Y', '%Y-%m-%d')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -185,19 +172,17 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
-STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
-STATIC_ROOT = '/staticfiles'
 MEDIA_URL = '/uploads/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-#GMAIL configurations
+# GMAIL configurations
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -206,7 +191,6 @@ EMAIL_HOST_USER = 'henry.stormsoft@gmail.com'
 EMAIL_HOST_PASSWORD = 'dlsszqxgqskmkyws'
 DEFAULT_FROM_EMAIL = 'henry.stormsoft@gmail.com'
 SERVER_EMAIL = 'mail.google.com'
-
 
 # ========UNEB EXCHANGE  ==========
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -219,7 +203,6 @@ SERVER_EMAIL = 'mail.google.com'
 # SERVER_EMAIL = 'mail.google.com'
 
 
-
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:4200",
 
@@ -227,13 +210,13 @@ CORS_ALLOWED_ORIGINS = [
 ]
 # swagger settings
 SWAGGER_SETTINGS = {
-   'SECURITY_DEFINITIONS': {
-      'Bearer': {
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
             'type': 'apiKey',
             'name': 'Authorization',
             'in': 'header'
-      }
-   }
+        }
+    }
 }
 
 LOGGING = {
