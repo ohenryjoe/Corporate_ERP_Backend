@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import LeaveType,LeavePolicy, LeaveBalance, LeaveRequest,LeaveRequestStage, Leave, LeaveProcessManager
+from .models import LeaveType,LeavePolicy, LeaveBalance, LeaveRequest,LeaveRequestStage, Leave, LeaveProcessManager, LeavePeriod
 
 
 
@@ -23,6 +23,12 @@ class LeavePolicySerializer(serializers.ModelSerializer):
                   'gender','salary_scales']
         
 
+class LeavePeriodSerializer(serializers.ModelSerializer):
+    '''manage crud operations for Leave period  data'''
+    class Meta:
+        '''Meta class to define the model and fields to be serialized'''
+        model = LeavePeriod
+        fields = ['id', 'employee','start_date','end_date','leave_policy','days_entitled']
 
 class LeaveBalanceSerializer(serializers.ModelSerializer):
     '''manage crud operations for Leave Policy  data'''

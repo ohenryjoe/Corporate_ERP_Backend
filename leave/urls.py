@@ -9,7 +9,7 @@ app_name = 'leave'
 router = routers.DefaultRouter()
 router.register(r'leave-types', views.LeaveTypeViewSet,'leave_types')
 router.register(r'leave-policies', views.LeavePolicyViewSet, 'leave_policies')
-# router.register(r'sub-regions', views.SubRegionViewSet, 'sub_regions')
+router.register(r'leave-periods', views.LeavePeriodViewSet, 'leave_periods')
 # router.register(r'districts', views.DistrictViewSet, 'districts')
 # router.register(r'local-government', views.LocalGovernmentViewSet, 'local_government')
 # router.register(r'counties', views.CountyViewSet, 'counties')
