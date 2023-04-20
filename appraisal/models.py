@@ -37,7 +37,9 @@ class AppraisalPerformanceFactor(BaseModel):
 
     title = models.CharField(max_length=250, null=False, blank=False)
     description = models.TextField(blank=True)
-    scores = models.JSONField(default=list)
+    # why is score a json list, which data does it store
+    scores = models.IntegerField(null=False, blank=False)
+    # scores = models.JSONField(default=list, null=False, blank=False)
     created_by = models.ForeignKey(
         User,
         related_name="created_performance_factors",

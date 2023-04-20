@@ -18,6 +18,8 @@ class AppraisalPerformanceFactorSerializer(serializers.ModelSerializer):
         model = AppraisalPerformanceFactor
         fields = ['id', 'title','description','scores','created_by']
 
+    
+
 
 
 class AppraisalScheduleSerializer(serializers.ModelSerializer):
@@ -26,7 +28,12 @@ class AppraisalScheduleSerializer(serializers.ModelSerializer):
         '''Meta class to define the model and fields to be serialized'''
         model = AppraisalSchedule
         fields = ['id', 'frequency','appraisee','appraiser','start_date','end_date','appraisal_opened_at','appraisal_deadline_date','status']
-
+    def to_representation(self, instance):
+        rep = super(AppraisalScheduleSerializer, self).to_representation(instance)
+        rep['frequency'] = instance.frequency.title
+        rep['appraisee'] = instance.appraisee.email
+        rep['appraiser'] = instance.appraisee.email
+        return rep
 
 class AppraiseePerformanceIndicatorSerializer(serializers.ModelSerializer):
     '''manage crud operations for Appraisee Performance Indicator data'''
