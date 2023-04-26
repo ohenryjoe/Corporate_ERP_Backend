@@ -5,10 +5,12 @@ from . import views
 
 app_name = 'employee'
 
+designation_employee_list = views.EmployeeDesignationViewSet.as_view({'get': 'list'})
 
 router = routers.DefaultRouter()
 router.register(r'designations', views.DesignationViewSet,'designation')
 router.register(r'employees', views.EmployeeViewSet,'employee')
+router.register(r'designation-employees', views.EmployeeDesignationViewSet,'designation_employee')
 router.register(r'appointment', views.AppointmentViewSet,'appointment')
 router.register(r'banking', views.BankingViewSet, 'banking')
 router.register(r'experience', views.ExperienceViewSet, 'experience')

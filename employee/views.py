@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from rest_framework import viewsets, permissions, filters
+from rest_framework.response import Response
 from .serializers import DesignationSerializer, EmployeeSerializer, BankingSerializer, ExperienceSerializer, \
-    EducationSerializer, RelatedPersonSerializer, AddressSerializer, ContactSerializer, AppointmentSerializer
+    EducationSerializer, RelatedPersonSerializer, AddressSerializer, ContactSerializer, AppointmentSerializer, EmployeeDesignationSerializer
 from .models import Designation, Employee, Banking, Experience, Education, RelatedPerson, Address, Contact, Appointment
 
 
@@ -98,3 +99,17 @@ class ContactViewSet(viewsets.ModelViewSet):
     pagination_class = None
     search_fields = ['employee_surname', 'employee_othernames', 'email', 'phone']
     ordering_fields = '__all__'
+
+
+class EmployeeDesignationViewSet(viewsets.ViewSet):
+    """
+    A simple ViewSet for listing or retrieving users.
+    """
+    def list(self, request):
+        queryset = Appointment.objects.all()
+        designation = self.request.query_params.get('designation')
+        if designation:
+            print(designation, 'This is the design')
+            queryset = queryset.filter(designation=designation)
+        serializer = EmployeeDesignationSerializer(queryset, many=True)
+        return Response(serializer.data)

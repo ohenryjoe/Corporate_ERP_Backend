@@ -33,7 +33,8 @@ class Designation(BaseModel, CuserModel):
     salary_scale = models.ForeignKey(
         SalaryScale, on_delete=models.SET_NULL, null=True, blank=True,
     )
-    supervisor = models.ForeignKey('self', null=True, on_delete=models.SET_NULL, related_name='designation_supervisor'
+    # supervisor must be a use or an employee
+    supervisor = models.ForeignKey('self', null=True,blank=True, on_delete=models.SET_NULL, related_name='designation_supervisor'
                                    )
 
     def __str__(self):

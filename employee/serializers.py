@@ -67,3 +67,11 @@ class AppointmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Appointment
         fields = ['id', 'designation', 'employee', 'start_date', 'end_date', 'current_appointment', 'first_appointment']
+
+
+class EmployeeDesignationSerializer(serializers.ModelSerializer):
+    class Meta:
+        depth = 1
+        model = Appointment
+        fields = [ 'employee',]
+        
