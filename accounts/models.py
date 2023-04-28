@@ -4,7 +4,9 @@ from django.contrib.auth.models import PermissionsMixin
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.base_user import BaseUserManager
 from django.core.mail import send_mail
+from django.contrib.auth.models import Group, Permission
 from common.choices import GENDER_CHOICES
+from typing import Any
 # Create your models here.
 
 # create custom user from django admin
@@ -50,6 +52,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     # Remarks is reason for which user is deactivated
     remarks = models.CharField(max_length=100, blank=True)
     personal_statement = models.TextField(null=True, blank=True)
+    groups = models.ManyToManyField(Group)
+    user_permissions = models.ManyToManyField(Permission)
     # will be used in django admin
     is_staff = models.BooleanField(default=False)
 

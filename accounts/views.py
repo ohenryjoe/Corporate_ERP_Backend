@@ -51,5 +51,16 @@ class UserViewSet(viewsets.ModelViewSet):
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
     search_fields = ['email','first_name','last_name','gender']
     ordering_fields = '__all__'
+
+    def get_queryset(self):
+        queryset = User.objects.all().order_by('-id')
+       
+        if self.request.user.is_superuser or self.request.user.groups.filter(name='Admin').exists():
+            queryset = queryset
+        else:
+            user = self.request.user
+            queryset = queryset.filter(id=user.id)
+
+        return queryset
     
     
