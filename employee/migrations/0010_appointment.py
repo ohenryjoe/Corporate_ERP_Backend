@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('capacity', models.CharField(choices=[('Substantive', 'Substantive'), ('Acting', 'Acting')], max_length=20)),
                 ('start_date', models.DateField(default=datetime.date.today)),
                 ('end_date', models.DateField(blank=True, null=True)),
-                ('file', models.FileField(upload_to='uploads/appointment_letters/')),
+                ('file', models.FileField(upload_to='appointment_letters/')),
                 ('first_appointment', models.BooleanField(default=False)),
                 ('current_appointment', models.BooleanField(default=False)),
                 ('designation', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='appointment_designation', to='employee.designation')),

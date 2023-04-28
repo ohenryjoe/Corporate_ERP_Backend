@@ -1,9 +1,14 @@
 from django.shortcuts import render
 from rest_framework import viewsets, permissions, filters
 from rest_framework.response import Response
+from django.core.mail import send_mail
+from smtplib import SMTPException
 from .serializers import DesignationSerializer, EmployeeSerializer, BankingSerializer, ExperienceSerializer, \
     EducationSerializer, RelatedPersonSerializer, AddressSerializer, ContactSerializer, AppointmentSerializer, EmployeeDesignationSerializer
 from .models import Designation, Employee, Banking, Experience, Education, RelatedPerson, Address, Contact, Appointment
+from accounts.models import User
+from accounts.views import get_random_string
+from django.db import IntegrityError
 
 
 # Create your views here.
@@ -27,6 +32,36 @@ class EmployeeViewSet(viewsets.ModelViewSet):
     pagination_class = None
     search_fields = ['surname', 'othernames', 'employeeNumber']
     ordering_fields = '__all__'
+
+    def create(self, request, format=None):
+        serializer = EmployeeSerializer(data=request.data)
+        if serializer.is_valid():
+            try:
+                email = serializer.validated_data['email']
+                first_name = serializer.validated_data['surname']
+                last_name = serializer.validated_data['othernames']
+                pswd = get_random_string(8)
+                employee = Employee.objects.filter(email=email).first()
+                if not employee:
+                    user = User.objects.create_user(email=email, password=pswd, first_name=first_name,last_name=last_name)    
+                    serializer.save(user=user)
+            except IntegrityError:
+                return Response({'error': 'User already exists'})
+            
+            # sending email after creating a user 
+            try:
+                send_mail(
+                 'WELCOME TO UNEB',
+                 'A NEW USER WAS CREATED WITH THIS EMAIL ADDRESS',
+                 'ohenryjoe@gmail.com',
+                ['julian.okello@gmail.com'],
+                fail_silently=False,
+                )
+            except SMTPException as e:
+                print('There was an error sending an email: ', e)
+
+            return Response(serializer.data)
+        return Response(serializer.errors, status=400)
 
 
 class AppointmentViewSet(viewsets.ModelViewSet):

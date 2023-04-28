@@ -106,7 +106,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='employee',
             name='profilePic',
-            field=models.FileField(blank=True, null=True, upload_to='uploads/profilePic/'),
+            field=models.FileField(blank=True, null=True, upload_to='profilePic/'),
         ),
         migrations.AddField(
             model_name='employee',

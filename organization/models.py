@@ -61,7 +61,7 @@ class Notice(BaseModel):
     detail = models.TextField(blank=True, null=True)
     date_published = models.DateField(blank=True, null=True)
     attachment = models.FileField(
-        upload_to="uploads/notices/"
+        upload_to="notices/"
     )
 
     def __str__(self):
