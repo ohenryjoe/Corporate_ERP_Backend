@@ -8,7 +8,7 @@ class LeaveTypeSerializer(serializers.ModelSerializer):
     class Meta:
         '''Meta class to define the model and fields to be serialized'''
         model = LeaveType
-        fields = ['id', 'name','description']
+        fields = ['id', 'name','category','description']
 
 
     

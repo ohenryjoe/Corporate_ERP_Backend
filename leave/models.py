@@ -8,8 +8,13 @@ from employee.models import Employee
 
 
 class LeaveType(BaseModel):
+    CATEGORY =(
+        ('earned','Earned'),
+        ('not earned', 'Not Earned')
+    )
     # Maternity Leave, Annual Leave etc
     name = models.CharField(max_length=255, null=False, blank=False)
+    category = models.CharField(max_length=12, blank=False, null=True)
     description = models.TextField(blank=True, null=True)
 
     def __str__(self):
