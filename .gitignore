@@ -106,3 +106,9 @@ docker-compose.yml
 
 wait-for
 Dockerfile
+
+# excluding migrations to avoid conflicts
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
+
