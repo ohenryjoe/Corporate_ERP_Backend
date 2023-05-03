@@ -41,7 +41,7 @@ class Migration(migrations.Migration):
                 ('start_datetime', models.DateTimeField(default=django.utils.timezone.now)),
                 ('end_datetime', models.DateTimeField(default=django.utils.timezone.now)),
                 ('location', models.CharField(default='UNEB Kyambogo Offices', max_length=255)),
-                ('attachment', models.FileField(upload_to='uploads/events/')),
+                ('attachment', models.FileField(upload_to='events/')),
             ],
             options={
                 'abstract': False,
@@ -75,7 +75,7 @@ class Migration(migrations.Migration):
                 ('caption', models.CharField(max_length=255)),
                 ('detail', models.TextField(blank=True, null=True)),
                 ('date_published', models.DateField(blank=True, null=True)),
-                ('attachment', models.FileField(upload_to='uploads/notices/')),
+                ('attachment', models.FileField(upload_to='notices/')),
                 ('event', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='organization.event')),
             ],
             options={

@@ -56,7 +56,7 @@ class Migration(migrations.Migration):
                 ('employee_number', models.CharField(blank=True, max_length=50)),
                 ('probation_period', models.PositiveSmallIntegerField(default=3)),
                 ('joined_date', models.DateField(blank=True, null=True)),
-                ('file', models.FileField(null=True, upload_to='uploads/appointment_letters/')),
+                ('file', models.FileField(null=True, upload_to='appointment_letters/')),
                 ('is_approved', models.BooleanField(default=False)),
                 ('approved_by', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='approved_users', to=settings.AUTH_USER_MODEL)),
                 ('designation', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='users', to='employee.designation')),

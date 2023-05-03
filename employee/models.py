@@ -13,6 +13,31 @@ from organization.models import Unit, EmploymentType, EmploymentTenure, SalarySc
 
 # Create your models here.
 
+class Employee(BaseModel, CuserModel):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="detail", null=False, blank=True)
+    employeeNumber = models.CharField(max_length=10, blank=True, null=True)
+    surname = models.CharField(max_length=25, blank=False, null=False)
+    othernames = models.CharField(max_length=25, blank=False, null=False)
+    dob = models.DateField(validators=[validate_user_birth_date])
+    gender = models.CharField(
+        choices=GENDER_CHOICES, max_length=15, default='Female'
+    )
+    salutation = models.CharField(
+        choices=SALUTATION_CHOICES, max_length=15, default='Ms'
+    )
+    nationality = models.ForeignKey(Nationality, on_delete=models.RESTRICT, null=True, blank=False)
+    marital_status = models.CharField(
+        choices=MARITAL_CHOICES, max_length=15, blank=True
+    )
+    profilePic = models.FileField(upload_to="profilePic/", null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
+    phone1 = models.IntegerField(null=False)
+    phone2 = models.IntegerField(null=True)
+    religion = models.CharField(max_length=25, blank=True, null=True)
+
+    def __str__(self):
+        return self.employeeNumber
+
 class Designation(BaseModel, CuserModel):
     ''' This model handles the different designations'''
     title = models.CharField(max_length=255)
@@ -33,7 +58,7 @@ class Designation(BaseModel, CuserModel):
     salary_scale = models.ForeignKey(
         SalaryScale, on_delete=models.SET_NULL, null=True, blank=True,
     )
-    # supervisor must be a use or an employee
+    # supervisor must be a user or an employee
     supervisor = models.ForeignKey('self', null=True,blank=True, on_delete=models.SET_NULL, related_name='designation_supervisor'
                                    )
 
@@ -41,30 +66,7 @@ class Designation(BaseModel, CuserModel):
         return self.title
 
 
-class Employee(BaseModel, CuserModel):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="detail", null=True, blank=True)
-    employeeNumber = models.CharField(max_length=10, blank=True, null=True)
-    surname = models.CharField(max_length=25, blank=False, null=False)
-    othernames = models.CharField(max_length=25, blank=False, null=False)
-    dob = models.DateField(validators=[validate_user_birth_date])
-    gender = models.CharField(
-        choices=GENDER_CHOICES, max_length=15, default='Female'
-    )
-    salutation = models.CharField(
-        choices=SALUTATION_CHOICES, max_length=15, default='Ms'
-    )
-    nationality = models.ForeignKey(Nationality, on_delete=models.RESTRICT, null=True, blank=False)
-    marital_status = models.CharField(
-        choices=MARITAL_CHOICES, max_length=15, blank=True
-    )
-    profilePic = models.FileField(upload_to="uploads/profilePic/", null=True, blank=True)
-    email = models.EmailField(null=True, blank=True)
-    phone1 = models.IntegerField(null=False)
-    phone2 = models.IntegerField(null=True)
-    religion = models.CharField(max_length=25, blank=True, null=True)
 
-    def __str__(self):
-        return self.employeeNumber
 
 
 class Appointment(BaseModel):
@@ -75,7 +77,7 @@ class Appointment(BaseModel):
     employment_type = models.ForeignKey(EmploymentType, default=1, on_delete=models.PROTECT)
     start_date = models.DateField(default=datetime.date.today)
     end_date = models.DateField(blank=True, null=True)
-    file = models.FileField(upload_to="uploads/appointment_letters/")
+    file = models.FileField(upload_to="appointment_letters/")
     first_appointment = models.BooleanField(default=False)
     current_appointment = models.BooleanField(default=False)
 
