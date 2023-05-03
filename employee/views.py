@@ -90,6 +90,8 @@ class AddressViewSet(viewsets.ModelViewSet):
     search_fields = ['employee', 'region', 'district', 'county', 'subcounty', 'parish', 'village']
     ordering_fields = '__all__'
 
+    
+
 
 class ContactViewSet(viewsets.ModelViewSet):
     queryset = Contact.objects.all()
