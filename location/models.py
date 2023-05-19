@@ -1,7 +1,6 @@
 import uuid
-from operator import concat
-
 from django.db import models
+from accounts.models import User
 
 
 # Create your models here.
@@ -10,9 +9,9 @@ class region(models.Model):
     code = models.CharField(max_length=20, unique=True)
     name = models.CharField(max_length=100, unique=True)
     active = models.BooleanField(default=False)
-    created_by = models.CharField(max_length=100, default=None)
+    created_by = models.ForeignKey(User, default=None, on_delete=models.PROTECT, null=True, blank=True)
     created_timestamp = models.DateTimeField(auto_now_add=True)
-    updated_by = models.CharField(max_length=100, default=None)
+    updated_by = models.ForeignKey(User, default=None, on_delete=models.PROTECT, null=True, blank=True, related_name='region_update_user')
     updated_timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
@@ -28,9 +27,9 @@ class sub_region(models.Model):
     region = models.ForeignKey(region, default=None, to_field="code", on_delete=models.PROTECT)
     code = models.CharField(max_length=20, unique=True)
     name = models.CharField(max_length=100, unique=True)
-    created_by = models.CharField(max_length=100, default=None)
+    created_by = models.ForeignKey(User, default=None, on_delete=models.PROTECT, null=True, blank=True)
     created_timestamp = models.DateTimeField(auto_now_add=True)
-    updated_by = models.CharField(max_length=100, default=None)
+    updated_by = models.ForeignKey(User, default=None, on_delete=models.PROTECT, null=True, blank=True, related_name='sub_region_update_user')
     updated_timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
@@ -47,9 +46,9 @@ class district(models.Model):
     code = models.CharField(max_length=20, unique=True)
     name = models.CharField(max_length=100, default=None, )
     active = models.BooleanField(default=False)
-    created_by = models.CharField(max_length=100, default=None)
+    created_by = models.ForeignKey(User, default=None, on_delete=models.PROTECT, null=True, blank=True)
     created_timestamp = models.DateTimeField(auto_now_add=True)
-    updated_by = models.CharField(max_length=100, default=None)
+    updated_by = models.ForeignKey(User, default=None, on_delete=models.PROTECT, null=True, blank=True, related_name='district_update_user')
     updated_timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
@@ -66,9 +65,9 @@ class local_government(models.Model):
     vote_code = models.CharField(max_length=100,unique=True, default=None)
     name = models.CharField(max_length=100, blank=True)
     active = models.BooleanField(default=False)
-    created_by = models.CharField(max_length=100, default=None)
+    created_by = models.ForeignKey(User, default=None, on_delete=models.PROTECT, null=True, blank=True)
     created_timestamp = models.DateTimeField(auto_now_add=True)
-    updated_by = models.CharField(max_length=100, default=None)
+    updated_by = models.ForeignKey(User, default=None, on_delete=models.PROTECT, null=True, blank=True, related_name='update_loc_gov_user')
     updated_timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
@@ -87,9 +86,9 @@ class county(models.Model):
     name = models.CharField(max_length=100, blank=True)
     constituency = models.CharField(max_length=100, null=True, blank=True)
     active = models.BooleanField(default=False)
-    created_by = models.CharField(max_length=100, default=None)
+    created_by = models.ForeignKey(User, default=None, on_delete=models.PROTECT, null=True, blank=True)
     created_timestamp = models.DateTimeField(auto_now_add=True)
-    updated_by = models.CharField(max_length=100, default=None)
+    updated_by = models.ForeignKey(User, default=None, on_delete=models.PROTECT, null=True, blank=True, related_name='update_country_user')
     updated_timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
@@ -106,9 +105,9 @@ class subcounty(models.Model):
     code = models.CharField(max_length=20, default=None, unique=True)
     name = models.CharField(max_length=100)
     active = models.BooleanField(default=False)
-    created_by = models.CharField(max_length=100, default=None)
+    created_by = models.ForeignKey(User, default=None, on_delete=models.PROTECT, null=True, blank=True)
     created_timestamp = models.DateTimeField(auto_now_add=True)
-    updated_by = models.CharField(max_length=100, default=None)
+    updated_by = models.ForeignKey(User, default=None, on_delete=models.PROTECT, null=True, blank=True, related_name='sub_country_update_user')
     updated_timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
@@ -126,9 +125,9 @@ class parish(models.Model):
     code = models.CharField(max_length=20, default=None, unique=True)
     name = models.CharField(max_length=100)
     active = models.BooleanField(default=False)
-    created_by = models.CharField(max_length=100, default=None)
+    created_by = models.ForeignKey(User, default=None, on_delete=models.PROTECT, null=True, blank=True)
     created_timestamp = models.DateTimeField(auto_now_add=True)
-    updated_by = models.CharField(max_length=100, default=None)
+    updated_by = models.ForeignKey(User, default=None, on_delete=models.PROTECT, null=True, blank=True, related_name='parish_update_user')
     updated_timestamp = models.DateTimeField(auto_now=True)
 
     class Meta:
@@ -145,9 +144,9 @@ class village(models.Model):
     code = models.CharField(max_length=20, default=None, unique=True)
     name = models.CharField(max_length=100)
     active = models.BooleanField(default=False)
-    created_by = models.CharField(max_length=100, default=None)
+    created_by = models.ForeignKey(User, default=None, on_delete=models.PROTECT, null=True, blank=True)
     created_timestamp = models.DateTimeField(auto_now_add=True)
-    updated_by = models.CharField(max_length=100, default=None)
+    updated_by = models.ForeignKey(User, default=None, on_delete=models.PROTECT, null=True, blank=True, related_name='village_update_user')
     updated_timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
